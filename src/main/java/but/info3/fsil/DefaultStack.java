@@ -1,11 +1,16 @@
 package but.info3.fsil;
 
+import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.List;
 
 /**
  * Basic implementation of SimpleStack.
  */
 public class DefaultStack implements SimpleStack {
+
+    private List<Item> itemList = new ArrayList<>();
+
     /**
      * Tests if this stack is empty.
      *
@@ -13,7 +18,7 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public boolean isEmpty() {
-        return true;
+        return itemList.isEmpty();
     }
 
     /**
@@ -23,7 +28,7 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public int getSize() {
-        return 0;
+        return itemList.size();
     }
 
     /**
@@ -34,7 +39,7 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public void push(final Item item) {
-
+        itemList.add(item);
     }
 
     /**
@@ -47,7 +52,8 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public Item peek() throws EmptyStackException {
-        return null;
+        if (isEmpty()) throw new EmptyStackException();
+        return itemList.get(itemList.size()-1);
     }
 
     /**
@@ -60,6 +66,10 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public Item pop() throws EmptyStackException {
-        return null;
+        if (isEmpty()) throw new EmptyStackException();
+        int indexLastItem = itemList.size()-1;
+        Item lastItem = itemList.get(indexLastItem);
+        itemList.remove(indexLastItem);
+        return lastItem;
     }
 }
