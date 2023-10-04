@@ -1,4 +1,4 @@
-package but3.fsil;
+package but.info3.fsil;
 
 import org.junit.jupiter.api.Test;
 
