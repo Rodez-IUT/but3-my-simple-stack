@@ -9,6 +9,9 @@ import java.util.List;
  */
 public class DefaultStack implements SimpleStack {
 
+    /**
+     * The list storing tje items.
+     */
     private List<Item> itemList = new ArrayList<>();
 
     /**
@@ -52,8 +55,10 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public Item peek() throws EmptyStackException {
-        if (isEmpty()) throw new EmptyStackException();
-        return itemList.get(itemList.size()-1);
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return itemList.get(itemList.size() -1 );
     }
 
     /**
@@ -66,8 +71,10 @@ public class DefaultStack implements SimpleStack {
      */
     @Override
     public Item pop() throws EmptyStackException {
-        if (isEmpty()) throw new EmptyStackException();
-        int indexLastItem = itemList.size()-1;
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        int indexLastItem = itemList.size() - 1;
         Item lastItem = itemList.get(indexLastItem);
         itemList.remove(indexLastItem);
         return lastItem;
