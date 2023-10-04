@@ -58,7 +58,7 @@ public class DefaultStack implements SimpleStack {
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        return itemList.get(itemList.size() -1 );
+        return itemList.get(itemList.size() - 1);
     }
 
     /**
